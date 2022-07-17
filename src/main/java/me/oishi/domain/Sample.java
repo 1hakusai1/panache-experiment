@@ -38,4 +38,8 @@ public class Sample {
         this.message = message;
     }
 
+    public void increment() {
+        setVisitedCount(visitedCount + 1);
+    }
+
 }

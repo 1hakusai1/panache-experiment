@@ -38,8 +38,7 @@ public class SampleResource {
     @Transactional
     public Sample visit(@RestPath Long id) {
         Sample sample = repository.findByIdOptional(id).orElseThrow();
-        int currentCount = sample.getVisitedCount();
-        sample.setVisitedCount(currentCount + 1);
+        sample.increment();
         return sample;
     }
 
