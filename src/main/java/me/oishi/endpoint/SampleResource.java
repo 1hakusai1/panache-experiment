@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -40,6 +41,13 @@ public class SampleResource {
         Sample sample = repository.findByIdOptional(id).orElseThrow();
         sample.visit();
         return sample;
+    }
+
+    @DELETE
+    @Path("/{id}")
+    @Transactional
+    public void delete(@RestPath Long id) {
+        repository.deleteById(id);
     }
 
 }
