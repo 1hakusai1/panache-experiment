@@ -21,9 +21,7 @@ public class InitialDataRegister {
     public void initializeData(@Observes StartupEvent event) {
         for (int i = 0; i < 100; i++) {
             String message = UUID.randomUUID().toString();
-            Sample sample = new Sample();
-            sample.setMessage(message);
-            sample.setVisitedCount(0);
+            Sample sample = new Sample(message);
             repository.persist(sample);
         }
     }

@@ -14,32 +14,20 @@ public class Sample {
     private String message;
     private int visitedCount;
 
-    public int getVisitedCount() {
-        return visitedCount;
+    public Sample() {
     }
 
-    public void setVisitedCount(int visitedCount) {
-        this.visitedCount = visitedCount;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
+    public Sample(String message) {
+        visitedCount = 0;
         this.message = message;
     }
 
     public void increment() {
-        setVisitedCount(visitedCount + 1);
+        visitedCount = visitedCount + 1;
+    }
+
+    public String greet() {
+        return "Hello " + message;
     }
 
 }
