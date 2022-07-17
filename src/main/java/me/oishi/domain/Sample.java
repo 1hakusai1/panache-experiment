@@ -12,6 +12,15 @@ public class Sample {
     private Long id;
 
     private String message;
+    private int visitedCount;
+
+    public int getVisitedCount() {
+        return visitedCount;
+    }
+
+    public void setVisitedCount(int visitedCount) {
+        this.visitedCount = visitedCount;
+    }
 
     public Long getId() {
         return id;

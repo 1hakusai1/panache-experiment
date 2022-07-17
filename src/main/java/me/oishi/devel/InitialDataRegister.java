@@ -23,6 +23,7 @@ public class InitialDataRegister {
             String message = UUID.randomUUID().toString();
             Sample sample = new Sample();
             sample.setMessage(message);
+            sample.setVisitedCount(0);
             repository.persist(sample);
         }
     }
