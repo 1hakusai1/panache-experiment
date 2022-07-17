@@ -1,6 +1,11 @@
 package me.oishi.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -14,6 +19,9 @@ public class Sample {
     private String message;
     private int visitedCount;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> postedMessages = new ArrayList<>();
+
     public Sample() {
     }
 
@@ -22,12 +30,12 @@ public class Sample {
         this.message = message;
     }
 
-    public void increment() {
+    public void visit() {
         visitedCount = visitedCount + 1;
+        postedMessages.add("posted");
     }
 
     public String greet() {
         return "Hello " + message;
     }
-
 }

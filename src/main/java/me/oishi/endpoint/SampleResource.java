@@ -38,7 +38,7 @@ public class SampleResource {
     @Transactional
     public Sample visit(@RestPath Long id) {
         Sample sample = repository.findByIdOptional(id).orElseThrow();
-        sample.increment();
+        sample.visit();
         return sample;
     }
 
